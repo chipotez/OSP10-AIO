@@ -17,10 +17,4 @@ S7 compute02 - f2lcompute02.actinver.com.mx 10.10.205.20 10.17.32.13
 S6 compute03 - f2lcompute03.actinver.com.mx 10.10.205.21 10.17.32.14
 ////
 
-Los equipos estan instalado con RHEL 7.4 minimal.
-
-
-== About the Author
-
-You can contact {author} at {email}.
-{firstname} loves to hear from other chroniclers.
+Los equipos estan instalado con RHEL 7.4+U
