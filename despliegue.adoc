@@ -28,7 +28,7 @@ Los equipos estan instalado con *RHEL 7.4+U* y la distribución quedará de la s
 .Segmentación de equipos
 [options="header,footer"]
 |=======================
-|#   | Hostname              |Rol        |Ip
+|# Server  | Hostname              |Rol        |Ip
 |S10 | ctr01.example.com     |Controller |10.10.205.23
 |S11 | ctr02.example.com     |Controller |10.10.205.24
 |S9  | compute01.example.com |Compute    |10.10.205.19
