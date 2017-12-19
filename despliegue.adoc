@@ -100,3 +100,6 @@ repolist: 5,747
 -----------------
 
 
+TIP: Red Hat actualiza periódicamente sus repositorios, por lo que la cantidad de paquetes puede variar de los que se muestran arriba. 
+     Lo mismo para versiones de productos menores o superiores.
+
