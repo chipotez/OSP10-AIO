@@ -1,7 +1,7 @@
 
 OSP10 / AIO
 -------
-
+Miguel Angel Pineda <mpinedam@redhat.com>
 
 
 En este procedimiento se realizará la instalación de OSP10/AIO con 5 nodos aprovisionados desde satellite 6.2 
@@ -20,20 +20,7 @@ S6 compute03 - f2lcompute03.actinver.com.mx 10.10.205.21 10.17.32.14
 Los equipos estan instalado con RHEL 7.4 minimal.
 
 
-
-= The Dangerous and Thrilling Documentation Chronicles
-Kismet Rainbow Chameleon <kismet@asciidoctor.org>
-
-This journey begins...
-
 == About the Author
 
 You can contact {author} at {email}.
 {firstname} loves to hear from other chroniclers.
-
-P.S. And yes, my middle name really is {middlename}.
-What else would you expect from a member of the Rocky Mountain {lastname} Clan?
-
-{authorinitials}
-
-a
