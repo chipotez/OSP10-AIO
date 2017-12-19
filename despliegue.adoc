@@ -56,12 +56,14 @@ Los comandos se deben ejecutar en nodos específicos. Cada paso menciona el nodo
 
 Por ejemplo:
 
-1 Ejecute este comando en los nodos *Control* y en el nodo *Computo*:
-\[Control] [Computo]
+1 .- Ejecute este comando en los nodos *Control* y en el nodo *Computo*:
+
+[Control] [Computo]
 
 ----
 # yum install ntp
 ----
+
 .Segmentación de equipos
 [options="header,footer"]
 |=======================
