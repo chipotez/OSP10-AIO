@@ -1,6 +1,16 @@
 # inicio 19-12-2017
-este procedimiento se realizará para la instalación de 
-OSP 10 AIO con 4 nodes
- 
-servers 9 y 11 controllers
-servers 6, 7, 12 compute
+este procedimiento se realizará para la instalación de -
+OSP 10 AIO con 5 nodos aprovisionados desde satellite  -
+6.2 
+
+//// S10 ctr01 - f2lctr01.actinver.com.mx 10.10.205.23 10.17.32.10
+S11 ctr02 - f2lctr02.actinver.com.mx 10.10.205.24 10.17.32.11
+
+S9 compute01 - f2lcompute01.actinver.com.mx 10.10.205.19 10.17.32.12
+S7 compute02 - f2lcompute02.actinver.com.mx 10.10.205.20 10.17.32.13
+S6 compute03 - f2lcompute03.actinver.com.mx 10.10.205.21 10.17.32.14
+
+
+
+
+
