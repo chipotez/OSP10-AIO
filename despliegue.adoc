@@ -6,8 +6,9 @@
 :Revision:  1.2
 
 
-Author is {author}
-Version is {revision}
+Autor:   {author}
+
+Versión: {revision}
 
 En este procedimiento se realizará la instalación de OSP10 - AIO con 5 nodos aprovisionados desde satellite 6.2 
 
