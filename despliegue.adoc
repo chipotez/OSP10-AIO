@@ -1,37 +1,46 @@
 == OSP10 - AIO
-
 :Author:    Miguel Angel Pineda
 :Email:     <mpinedam@redhat.com>
 :Date: 19-Dic-2017
 :Revision:  1.2
 
-
 Autor:   {author}
 
 Versión: {revision}
-
-En este procedimiento se realizará la instalación de OSP10 - AIO con 5 nodos aprovisionados desde satellite 6.2 
 
 ////
 *Comment* 
 S10 ctr01 - f2lctr01.actinver.com.mx 10.10.205.23 10.17.32.10 
 S11 ctr02 - f2lctr02.actinver.com.mx 10.10.205.24 10.17.32.11
-
 S9 compute01 - f2lcompute01.actinver.com.mx 10.10.205.19 10.17.32.12
 S7 compute02 - f2lcompute02.actinver.com.mx 10.10.205.20 10.17.32.13
 S6 compute03 - f2lcompute03.actinver.com.mx 10.10.205.21 10.17.32.14
+V1 v1plsatellite01.actinver.com.mx 
 ////
+=== Resumén de Laboratorio
+====Componentes del entorno de laboratorio
+* Una estación de trabajo cliente.
+* Dos nodos control
+* Tres nodos de computo
+====Designaciones de nodos
+En todos los laboratorios de este curso, los pasos se deben ejecutar en nodos específicos. Cada paso enumera el nodo o los nodos en los que se debe ejecutar entre paréntesis, de la siguiente manera:
+* [Controller]
+* [Compute]
+Por ejemplo:
+1 Ejecute este comando en los nodos Control y en el nodo Computo:
+[Control] [Computo]
 
-Los equipos estan instalado con *RHEL 7.4+U* y la distribución quedará de la siguiente manera:
-
-
+----
+# yum install ntp
+----
 .Segmentación de equipos
 [options="header,footer"]
 |=======================
-| Server No.  | Hostname              |Rol        |Ip
-|S10 | ctr01.example.com     |Controller |10.10.205.23
-|S11 | ctr02.example.com     |Controller |10.10.205.24
-|S9  | compute01.example.com |Compute    |10.10.205.19
-|S7  | compute02.example.com |Compute    |10.10.205.20
-|S6  | compute03.example.com |Compute    |10.10.205.21
+| Server No.  | Hostname       |Rol        |Ip
+|S10 | ctr01.example.com       |Controller |10.10.205.23
+|S11 | ctr02.example.com       |Controller |10.10.205.24
+|S9  | compute01.example.com   |Compute    |10.10.205.19
+|S7  | compute02.example.com   |Compute    |10.10.205.20
+|S6  | compute03.example.com   |Compute    |10.10.205.21
+|    | satellite01.example.com |Compute    |10.10.205.21
 |=======================
