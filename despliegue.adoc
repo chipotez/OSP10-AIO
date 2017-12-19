@@ -73,7 +73,7 @@ Por ejemplo:
 |S9  | compute01.example.com   |Compute    |10.10.205.19
 |S7  | compute02.example.com   |Compute    |10.10.205.20
 |S6  | compute03.example.com   |Compute    |10.10.205.21
-|    | satellite01.example.com |Satellite  |10.10.205.21
+|    | satellite01.example.com |Satellite  |10.10.205.22
 |=======================
 
 === 2 .- Preparando Ambiente de Laboratorio.
@@ -84,5 +84,18 @@ Por ejemplo:
 ----
 # yum repolist
 ----
+
+* Code listings:
++
+[source,python]
+-----------------
+#!/usr/bin/env python
+import antigravity
+try:
+  antigravity.fly()
+except FlytimeError as e:
+  # um...not sure what to do now.
+  pass
+-----------------
 
 
