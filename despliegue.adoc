@@ -1,5 +1,4 @@
-OSP10 - AIO
--------
+== OSP10 - AIO
 
 En este procedimiento se realizará la instalación de OSP10 - AIO con 5 nodos aprovisionados desde satellite 6.2 
 
