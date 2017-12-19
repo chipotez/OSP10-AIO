@@ -92,10 +92,6 @@ Por ejemplo:
 #!/usr/bin/env python
 import antigravity
 try:
-  antigravity.fly()
-except FlytimeError as e:
-  # um...not sure what to do now.
-  pass
 -----------------
 
 
