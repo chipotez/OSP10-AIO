@@ -58,7 +58,7 @@ Por ejemplo:
 
 1 .- Ejecute este comando en los nodos *Control* y en el nodo *Computo*:
 
-\ *[Control]* *[Computo]*
+*[Control]* *[Computo]*
 
 ----
 # yum install ntp
@@ -79,7 +79,7 @@ Por ejemplo:
 === 2 .- Preparando Ambiente de Laboratorio.
 1 .- En los nodos de Control, Computo, valide que tiene los repositorios necesarios para la instalación:
 
-\ *[Control]* *[Computo]*
+*[Control]* *[Computo]*
 
 ----
 # yum repolist
