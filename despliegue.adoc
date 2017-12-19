@@ -77,7 +77,7 @@ Por ejemplo:
 |=======================
 
 === 2 .- Preparando Ambiente de Laboratorio.
-1 .- En los nodos de Control, Computo, valide que tiene los repositorios necesarios para la instalación:
+. En los nodos de Control, Computo, valide que tiene los repositorios necesarios para la instalación:
 
 *[Control]* *[Computo]*
 
@@ -103,11 +103,11 @@ repolist: 5,747
 TIP: Red Hat actualiza periódicamente sus repositorios, por lo que la cantidad de paquetes puede variar de los que se muestran arriba. 
      Lo mismo para versiones de productos menores o superiores.
      
-2 .- Actualizar nodos:
+. Actualizar nodos:
 
 Antes de comenzar los laboratorios restantes, asegúrese de que sus paquetes estén actualizados.
 
-1 .- Actualize los paquetes en todos los nodos
+   .  Actualize los paquetes en todos los nodos
 *[Control]* *[Computo]*
 
 ----
@@ -121,7 +121,7 @@ Antes de comenzar los laboratorios restantes, asegúrese de que sus paquetes est
 repo id
 -----------------
 
-2 .- En caso de tener una nueva versión de Kernel, reinicie los nodos:
+   . En caso de tener una nueva versión de Kernel, reinicie los nodos:
 
 ----
 # reboot
