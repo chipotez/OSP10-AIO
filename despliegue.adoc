@@ -90,12 +90,12 @@ Por ejemplo:
 [source,bash]
 -----------------
 repo id                                  repo name                                          status
-rhel-7-server-extras-rpms                Red Hat Enterprise Linux 7 Server Extras               76
-rhel-7-server-openstack-10-devtools-rpms Red Hat OpenStack 10 DevTools                           3
-rhel-7-server-openstack-10-rpms          Red Hat OpenStack 10                                  680
-rhel-7-server-rh-common-rpms             Red Hat Enterprise Linux 7 Common                      77
-rhel-7-server-rpms                       Red Hat Enterprise Linux 7                          4,874
-rhel-ha-for-rhel-7-server-rpms           Red Hat Enterprise Linux 7 Server High-Availability    37
+rhel-7-server-extras-rpms                RH Enterprise Linux 7 Server Extras               76
+rhel-7-server-openstack-10-devtools-rpms RH OpenStack 10 DevTools                           3
+rhel-7-server-openstack-10-rpms          RH OpenStack 10                                  680
+rhel-7-server-rh-common-rpms             RH Enterprise Linux 7 Common                      77
+rhel-7-server-rpms                       RH Enterprise Linux 7                          4,874
+rhel-ha-for-rhel-7-server-rpms           RH Enterprise Linux 7 Server High-Availability    37
 repolist: 5,747
 -----------------
 
