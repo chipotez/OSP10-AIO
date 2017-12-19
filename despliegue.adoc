@@ -78,6 +78,7 @@ Ejecute este comando en los nodos *Control* y en el nodo *Computo*:
 
 === 2 .- Preparando Ambiente de Laboratorio.
 
+==== 1.- Validando canales/repositorios necesarios.
 En los nodos de Control, Computo, valide que tiene los repositorios necesarios para la instalación:
 
 *[Control]* *[Computo]*
@@ -104,7 +105,7 @@ repolist: 5,747
 TIP: Red Hat actualiza periódicamente sus repositorios, por lo que la cantidad de paquetes puede variar de los que se muestran arriba. 
      Lo mismo para versiones de productos menores o superiores.
      
-==== 1.- Actualizar nodos:
+==== 2.- Actualizar nodos:
 
 Antes de comenzar los laboratorios restantes, asegúrese de que sus paquetes estén actualizados.
 
@@ -129,16 +130,26 @@ b) En caso de tener una nueva versión de Kernel, reinicie los nodos:
 # reboot
 ----
 
-==== 2.- Instalar Utilerias de OpenStack.
+==== 3.- Instalar Utilerias de OpenStack.
 
 OpenStack requiere unos pocos paquetes base y definiciones de políticas (SELinux) en todos los nodos.
 
-    a) Como *root*, ejecute el siguiente comando en todos los nodos:
-       *[Control]* *[Computo]*
+a) Como *root*, ejecute el siguiente comando en todos los nodos:
+
+*[Control]* *[Computo]*
+
 ----
 # yum -y install openstack-utils openstack-selinux
 ----       
        
-    b) 
+==== 4.- Configurando Firewall
+
+a) Instale el paquete iptables-services en todos los nodos:
+
+*[Control]* *[Computo]*
+
+----
+# yum -y install iptables-services
+----
     
-    c)
+    
