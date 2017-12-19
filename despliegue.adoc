@@ -1,11 +1,7 @@
 
 OSP10 / AIO
 -------
-
-
 En este procedimiento se realizará la instalación de OSP10/AIO con 5 nodos aprovisionados desde satellite 6.2 
-
-
 ////
 *Comment* 
 S10 ctr01 - f2lctr01.actinver.com.mx 10.10.205.23 10.17.32.10 
@@ -16,11 +12,11 @@ S7 compute02 - f2lcompute02.actinver.com.mx 10.10.205.20 10.17.32.13
 S6 compute03 - f2lcompute03.actinver.com.mx 10.10.205.21 10.17.32.14
 ////
 
-Los equipos estan instalado con RHEL 7.4+U
+*Los equipos estan instalado con RHEL 7.4+U*
 
-tables
+Tables
 ^^^^^^^
-.Responsables de implementación.
+. Responsables de implementación.
 [options="header,footer"]
 |=======================
 |Nombre|Rol      |E-mail
