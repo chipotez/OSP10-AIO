@@ -1,13 +1,11 @@
-Main Header
-===========
-Optional Author Name <optional@author.email>
-Optional version, optional date
-:Author:    AlternativeWayToSetOptional Author Name
-:Email:     <AlternativeWayToSetOptional@author.email>
-:Date:      AlternativeWayToSetOptional date
-:Revision:  AlternativeWayToSetOptional version
-
 == OSP10 - AIO
+
+:Author:    Miguel Angel Pineda
+:Email:     <mpinedam@redhat.com>
+:Date: 19-Dic-2017
+:Revision:  1.2
+
+
 Author is {author}
 Version is {revision}
 
