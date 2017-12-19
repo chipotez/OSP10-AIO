@@ -17,6 +17,7 @@ S7 compute02 - f2lcompute02.actinver.com.mx 10.10.205.20 10.17.32.13
 S6 compute03 - f2lcompute03.actinver.com.mx 10.10.205.21 10.17.32.14
 V1 v1plsatellite01.actinver.com.mx 
 ////
+
 === Resumén de Laboratorio
 
 ====Componentes del entorno de laboratorio
@@ -25,11 +26,16 @@ V1 v1plsatellite01.actinver.com.mx
 
 * Dos nodos control
 * Tres nodos de computo
+
 ====Designaciones de nodos
+
 En todos los laboratorios de este curso, los pasos se deben ejecutar en nodos específicos. Cada paso enumera el nodo o los nodos en los que se debe ejecutar entre paréntesis, de la siguiente manera:
+
 * [Controller]
 * [Compute]
+
 Por ejemplo:
+
 1 Ejecute este comando en los nodos Control y en el nodo Computo:
 [Control] [Computo]
 
