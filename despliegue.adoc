@@ -102,4 +102,27 @@ repolist: 5,747
 
 TIP: Red Hat actualiza periódicamente sus repositorios, por lo que la cantidad de paquetes puede variar de los que se muestran arriba. 
      Lo mismo para versiones de productos menores o superiores.
+     
+2 .- Actualizar nodos:
 
+Antes de comenzar los laboratorios restantes, asegúrese de que sus paquetes estén actualizados.
+
+1 .- Actualize los paquetes en todos los nodos
+*[Control]* *[Computo]*
+
+----
+# yum -y update
+----
+
+* Salida Esperada:
++
+[source,bash]
+-----------------
+repo id
+-----------------
+
+2 .- En caso de tener una nueva versión de Kernel, reinicie los nodos:
+
+----
+# reboot
+----
