@@ -27,7 +27,7 @@ Los equipos estan instalado con *RHEL 7.4+U* y la distribución quedará de la s
 
 .Distribución de equipos
 [options = "header, footer"]
-| == =====================
+| =======================
 | Hostname | Rol | Ip
 | 1 | Ítem 1 | a
 | 2 | Ítem 2 | b
