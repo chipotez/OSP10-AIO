@@ -18,7 +18,28 @@ S6 compute03 - f2lcompute03.actinver.com.mx 10.10.205.21 10.17.32.14
 V1 v1plsatellite01.actinver.com.mx 
 ////
 
-=== Resumén de Laboratorio
+=== Resumén de Laboratorio.
+
+Con la finalidad de proveer de una plataforma de funcionalidades IaaS, Red Hat apoya a
+Grupo Financiero Actinver implementando los siguientes componentes en un
+ambiente de laboratorio :
+
+* Red Hat Openstack Platform v10+u con Packstack.
+
+Dicho laboratorio esta diseñado para acercar lo mas posible la funcionalidad actual a un
+ambiente de Desarrollo ó Pruebas.
+
+El laboratorio consta de una implementación estándar por lo cual no se realizó ninguna tarea
+adicional (tunning) a ninguno de los componentes, no se contemplaron tareas de
+benckmarking, por lo cual sí el cliente requiere obtener métricas de consumo, performance o
+sizing, se tendrán que realizar tareas en una definición externa a este documento.
+
+IMPORTANT: Importante: Este laboratorio se realizó con Packstack debido a que durante la instalación con -
+                       OSP Director las interfaces de red de los servidores IBM x240 8737AC1 durante el  -
+                       proceso introspección no realizaban el proceso adecuado de descarga de imagenes,  -
+                       Actualmente se tiene un ticket abierto con Red Hat sin embargo todo apunta a un   -
+                       problema de HW.
+
 
 ==== Componentes del entorno de laboratorio
 
