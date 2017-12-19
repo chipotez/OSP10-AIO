@@ -34,10 +34,10 @@ adicional (tunning) a ninguno de los componentes, no se contemplaron tareas de
 benckmarking, por lo cual sí el cliente requiere obtener métricas de consumo, performance o
 sizing, se tendrán que realizar tareas en una definición externa a este documento.
 
-IMPORTANT: Importante: Este laboratorio se realizó con Packstack debido a que durante la instalación con -
-                       OSP Director las interfaces de red de los servidores IBM x240 8737AC1 durante el  -
-                       proceso introspección no realizaban el proceso adecuado de descarga de imagenes,  -
-                       Actualmente se tiene un ticket abierto con Red Hat sin embargo todo apunta a un   -
+IMPORTANTE: Este laboratorio se realizó con Packstack debido a que durante la instalación con
+                       OSP Director las interfaces de red de los servidores IBM x240 8737AC1 durante el
+                       proceso introspección no realizaban el proceso adecuado de descarga de imagenes,
+                       Actualmente se tiene un ticket abierto con Red Hat sin embargo todo apunta a un 
                        problema de HW.
 
 
@@ -57,7 +57,7 @@ Los comandos se deben ejecutar en nodos específicos. Cada paso menciona el nodo
 Por ejemplo:
 
 1 Ejecute este comando en los nodos *Control* y en el nodo *Computo*:
-[Control] [Computo]
+\[Control] [Computo]
 
 ----
 # yum install ntp
@@ -71,5 +71,5 @@ Por ejemplo:
 |S9  | compute01.example.com   |Compute    |10.10.205.19
 |S7  | compute02.example.com   |Compute    |10.10.205.20
 |S6  | compute03.example.com   |Compute    |10.10.205.21
-|    | satellite01.example.com |Compute    |10.10.205.21
+|    | satellite01.example.com |Satellite  |10.10.205.21
 |=======================
