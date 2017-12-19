@@ -167,6 +167,8 @@ b) Iniciar y habilitar los servicios de iptables e ip6tables.
 
 a) Vea el archivo /etc/ntp.conf y asegúrese de que contiene las siguientes declaraciones del servidor:
 
+*[Control01]*
+
 * Salida Esperada:
 +
 [source,bash]
@@ -174,4 +176,82 @@ a) Vea el archivo /etc/ntp.conf y asegúrese de que contiene las siguientes decl
 server 10.10.113.50 iburst
 -----------------
     
-    
+b) En la parte superior del archivo, comente las tres líneas de restricción para permitir el acceso y agregue lo siguiente:
+
+*[Control01]*
+
+----
+restrict -4 default kod notrap nomodify
+restrict -6 default kod notrap nomodify
+----
+
+c) Guarde y cierre el archivo
+
+d) Inicie y habilite el servicio de NTP.
+
+*[Control01]*
+
+----
+# systemctl enable ntpd.service
+# systemctl start ntpd.service
+----
+
+e) abra el archivo /etc/sysconfig/iptables con un editor de textos.
+
+f) Agregue una regla de entrada que permita el tráfico UDP en el puerto 123 para que el servidor NTP pueda responder las consultas que le realicen.
+
+*[Control01]*
+
+----
+-A INPUT -p udp -m udp --dport 123 -j ACCEPT
+----
+
+g) Reinicie el servicio de iptables y verifique la configuración:
+
+*[Control01]*
+
+----
+# systemctl restart iptables.service
+# iptables -L
+----
+
+* Salida Esperada:
++
+[source,bash]
+-----------------
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination
+ACCEPT     all  --  anywhere             anywhere             state RELATED,ESTABLISHED
+ACCEPT     icmp --  anywhere             anywhere
+ACCEPT     all  --  anywhere             anywhere
+ACCEPT     tcp  --  anywhere             anywhere             state NEW tcp dpt:ssh
+ACCEPT     udp  --  anywhere             anywhere             udp dpt:ntp
+REJECT     all  --  anywhere             anywhere             reject-with icmp-host-prohibited
+
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination
+REJECT     all  --  anywhere             anywhere             reject-with icmp-host-prohibited
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination
+-----------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
