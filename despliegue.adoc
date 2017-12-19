@@ -108,7 +108,8 @@ TIP: Red Hat actualiza periódicamente sus repositorios, por lo que la cantidad 
 
 Antes de comenzar los laboratorios restantes, asegúrese de que sus paquetes estén actualizados.
 
-    a)  Actualize los paquetes en todos los nodos
+a)  Actualize los paquetes en todos los nodos
+
 *[Control]* *[Computo]*
 
 ----
@@ -122,7 +123,7 @@ Antes de comenzar los laboratorios restantes, asegúrese de que sus paquetes est
 repo id
 -----------------
 
-    b) En caso de tener una nueva versión de Kernel, reinicie los nodos:
+b) En caso de tener una nueva versión de Kernel, reinicie los nodos:
 
 ----
 # reboot
