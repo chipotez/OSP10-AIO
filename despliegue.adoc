@@ -3,7 +3,8 @@ este procedimiento se realizará para la instalación de -
 OSP 10 AIO con 5 nodos aprovisionados desde satellite  -
 6.2 
 
-//// S10 ctr01 - f2lctr01.actinver.com.mx 10.10.205.23 10.17.32.10
+//// 
+* S10 ctr01 - f2lctr01.actinver.com.mx 10.10.205.23 10.17.32.10 *
 S11 ctr02 - f2lctr02.actinver.com.mx 10.10.205.24 10.17.32.11
 
 S9 compute01 - f2lcompute01.actinver.com.mx 10.10.205.19 10.17.32.12
