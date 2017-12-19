@@ -85,9 +85,9 @@ Por ejemplo:
 # yum repolist
 ----
 
-* Code listings:
+* Salida Esperada:
 +
-[source,python]
+[source,bash]
 -----------------
 #!/usr/bin/env python
 import antigravity
