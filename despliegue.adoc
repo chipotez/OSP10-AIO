@@ -22,4 +22,15 @@ S7 compute02 - f2lcompute02.actinver.com.mx 10.10.205.20 10.17.32.13
 S6 compute03 - f2lcompute03.actinver.com.mx 10.10.205.21 10.17.32.14
 ////
 
-Los equipos estan instalado con *RHEL 7.4+U*
+Los equipos estan instalado con *RHEL 7.4+U* y la distribución quedará de la siguiente manera:
+
+
+.Distribución de equipos
+[options = "header, footer"]
+| == =====================
+| Hostname | Rol | Ip
+| 1 | Ítem 1 | a
+| 2 | Ítem 2 | b
+| 3 | Ítem 3 | c
+| 6 | Tres Ítems  | d
+| =======================
