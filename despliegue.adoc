@@ -34,3 +34,11 @@ Los equipos estan instalado con *RHEL 7.4+U* y la distribución quedará de la s
 | compute01 | Ítem 3 | c
 | compute02 | Tres Ítems  | d
 | =======================
+
+[grid="rows",format="csv"]
+[options="header",cols="^,<,<,>m"]
+|===========================
+ID,Nombre,Apellido,Dirección,Teléfono
+1,Vasya,Pupkin,London,+123
+2,X,Y,"A,B",45678
+|===========================
