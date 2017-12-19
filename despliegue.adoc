@@ -28,10 +28,10 @@ Los equipos estan instalado con *RHEL 7.4+U* y la distribución quedará de la s
 .Segmentación de equipos
 [options="header,footer"]
 |=======================
-|Hostname|Rol      |Ip
-|ctr01.example.com    |Item 1     |a
-|ctr02.example.com    |Item 2     |b
-|compute01    |Item 3     |c
-|compute02    |Three items|d
-|compute03    |Three items|d
+|#   | Hostname              |Rol        |Ip
+|S10 | ctr01.example.com     |Controller |10.10.205.23
+|S11 | ctr02.example.com     |Controller |10.10.205.24
+|S9  | compute01.example.com |Compute    |10.10.205.19
+|S7  | compute02.example.com |Compute    |10.10.205.20
+|S6  | compute03.example.com |Compute    |10.10.205.21
 |=======================
