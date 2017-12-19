@@ -1,1 +1,6 @@
 # inicio 19-12-2017
+este procedimiento se realizará para la instalación de 
+OSP 10 AIO con 4 nodes
+ 
+servers 9 y 11 controllers
+servers 6, 7, 12 compute
