@@ -10,12 +10,13 @@ Versión: {revision}
 
 ////
 *Comment* 
-S10 ctr01 - f2lctr01.actinver.com.mx 10.10.205.23 10.17.32.10 
-S11 ctr02 - f2lctr02.actinver.com.mx 10.10.205.24 10.17.32.11
-S9 compute01 - f2lcompute01.actinver.com.mx 10.10.205.19 10.17.32.12
-S7 compute02 - f2lcompute02.actinver.com.mx 10.10.205.20 10.17.32.13
-S6 compute03 - f2lcompute03.actinver.com.mx 10.10.205.21 10.17.32.14
-V1 v1plsatellite01.actinver.com.mx 
+S10 ctr01    - f2lctr01.act.com.mx        10.10.205.23 10.17.32.10 
+S11 ctr02    - f2lctr02.act.com.mx        10.10.205.24 10.17.32.11
+S9 compute01 - f2lcompute01.act.com.mx    10.10.205.19 10.17.32.12
+S7 compute02 - f2lcompute02.act.com.mx    10.10.205.20 10.17.32.13
+S6 compute03 - f2lcompute03.act.com.mx    10.10.205.21 10.17.32.14
+V1             v1plsatellite01.act.com.mx 10.10.110.21
+V2             v2plntpserver01.act.com.mx 10.10.113.50
 ////
 
 === 1 .- Resumén de Laboratorio.
@@ -74,6 +75,7 @@ Ejecute este comando en los nodos *Control* y en el nodo *Computo*:
 |S11 | compute02.example.com   |Compute    |10.10.205.23 |10.12.8.14
 |S12 | compute03.example.com   |Compute    |10.10.205.23 |10.12.8.15
 |    | satellite01.example.com |Satellite  |10.10.110.21 |    N/A
+|    | ntp.example.com.        |NTP        |10.10.113.50 |
 |=======================
 
 === 2 .- Preparando Ambiente de Laboratorio.
@@ -151,5 +153,25 @@ a) Instale el paquete iptables-services en todos los nodos:
 ----
 # yum -y install iptables-services
 ----
+
+b) Iniciar y habilitar los servicios de iptables e ip6tables.
+
+*[Control]* *[Compute]*
+
+----
+# systemctl start iptables.service ip6tables.service
+# systemctl enable iptables.service ip6tables.service
+----
+
+==== 5.- Configurar NTP Server en nodo Controller.
+
+a) Vea el archivo /etc/ntp.conf y asegúrese de que contiene las siguientes declaraciones del servidor:
+
+* Salida Esperada:
++
+[source,bash]
+-----------------
+server 10.10.113.50 iburst
+-----------------
     
     
