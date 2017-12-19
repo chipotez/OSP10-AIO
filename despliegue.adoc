@@ -1,4 +1,4 @@
-# inicio 19-12-2017
+inicio 19-12-2017
 este procedimiento se realizará para la instalación de OSP 10 AIO con 5 nodos aprovisionados desde satellite 6.2 
 
 
