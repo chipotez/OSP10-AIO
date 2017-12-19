@@ -18,7 +18,7 @@ S6 compute03 - f2lcompute03.actinver.com.mx 10.10.205.21 10.17.32.14
 V1 v1plsatellite01.actinver.com.mx 
 ////
 
-=== . Resumén de Laboratorio.
+=== 1 .- Resumén de Laboratorio.
 
 Con la finalidad de proveer de una plataforma de funcionalidades IaaS, Red Hat apoya a
 Grupo Financiero Actinver implementando los siguientes componentes en un
@@ -56,7 +56,7 @@ Los comandos se deben ejecutar en nodos específicos. Cada paso menciona el nodo
 
 Por ejemplo:
 
-    . Ejecute este comando en los nodos *Control* y en el nodo *Computo*:
+Ejecute este comando en los nodos *Control* y en el nodo *Computo*:
 
 *[Control]* *[Computo]*
 
@@ -76,8 +76,9 @@ Por ejemplo:
 |    | satellite01.example.com |Satellite  |10.10.110.21 |    N/A
 |=======================
 
-=== . Preparando Ambiente de Laboratorio.
-. En los nodos de Control, Computo, valide que tiene los repositorios necesarios para la instalación:
+=== 2 .- Preparando Ambiente de Laboratorio.
+
+En los nodos de Control, Computo, valide que tiene los repositorios necesarios para la instalación:
 
 *[Control]* *[Computo]*
 
@@ -103,11 +104,11 @@ repolist: 5,747
 TIP: Red Hat actualiza periódicamente sus repositorios, por lo que la cantidad de paquetes puede variar de los que se muestran arriba. 
      Lo mismo para versiones de productos menores o superiores.
      
-. Actualizar nodos:
+==== 1.- Actualizar nodos:
 
 Antes de comenzar los laboratorios restantes, asegúrese de que sus paquetes estén actualizados.
 
-    .  Actualize los paquetes en todos los nodos
+    a)  Actualize los paquetes en todos los nodos
 *[Control]* *[Computo]*
 
 ----
@@ -121,8 +122,22 @@ Antes de comenzar los laboratorios restantes, asegúrese de que sus paquetes est
 repo id
 -----------------
 
-   . En caso de tener una nueva versión de Kernel, reinicie los nodos:
+    b) En caso de tener una nueva versión de Kernel, reinicie los nodos:
 
 ----
 # reboot
 ----
+
+==== 2.- Instalar Utilerias de OpenStack.
+
+OpenStack requiere unos pocos paquetes base y definiciones de políticas (SELinux) en todos los nodos.
+
+    a) Como *root*, ejecute el siguiente comando en todos los nodos:
+       *[Control]* *[Computo]*
+----
+# yum -y install openstack-utils openstack-selinux
+----       
+       
+    b) 
+    
+    c)
