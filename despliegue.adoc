@@ -25,20 +25,12 @@ S6 compute03 - f2lcompute03.actinver.com.mx 10.10.205.21 10.17.32.14
 Los equipos estan instalado con *RHEL 7.4+U* y la distribución quedará de la siguiente manera:
 
 
-.Distribución de equipos
+.Una tabla ejemplo
 [options = "header, footer"]
 | =======================
-| Hostname | Rol | Ip
-| ctr01 | Ítem 1 | a
-| ctr02 | Ítem 2 | b
-| compute01 | Ítem 3 | c
-| compute02 | Tres Ítems  | d
+| Col 1 | Col 2 | Col 3
+| 1 | Ítem 1 | a
+| 2 | Ítem 2 | b
+| 3 | Ítem 3 | c
+| 6 | Tres Ítems  | d
 | =======================
-
-[grid="rows",format="csv"]
-[options="header",cols="^,<,<,>m"]
-|===========================
-ID,Nombre,Apellido,Dirección,Teléfono
-1,Vasya,Pupkin,London,+123
-2,X,Y,"A,B",45678
-|===========================
