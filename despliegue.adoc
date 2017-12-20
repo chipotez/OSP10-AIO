@@ -1,13 +1,8 @@
 = Asciidoctor EPUB3: Sample Book
-Author Name
-v1.0, 2014-04-15
+Miguel Pineda <mpinedam@redhat.com>
+v1.0, 2017-12-19
 :doctype: book
-:creator: {author}
-:producer: Asciidoctor
 :keywords: Asciidoctor, samples, e-book, EPUB3, KF8, MOBI, Asciidoctor.js
-:copyright: CC-BY-SA 3.0
-:source-highlighter: coderay
-ifndef::ebook-format[:leveloffset: 1]
 
 
 
