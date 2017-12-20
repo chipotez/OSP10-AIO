@@ -3,6 +3,16 @@
 :Email:     <mpinedam@redhat.com>
 :Date: 19-Dic-2017
 :Revision:  1.2
+:doctype: book
+:keywords: Asciidoctor, samples, e-book, EPUB3, KF8, MOBI, Asciidoctor.js
+
+include::asciidoctor-epub3-readme.adoc[]
+
+include::sample-content.adoc[]
+
+include::asciidoctor-js-introduction.adoc[]
+
+include::asciidoctor-js-extension.adoc[]
 
 Autor:   {author}
 
