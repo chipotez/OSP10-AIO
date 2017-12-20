@@ -17,7 +17,7 @@ V2             v2plntpserver01.act.com.mx 10.10.113.50
 Actinver01
 ////
 
-== 1 Resumen de Laboratorio
+== 1 .- Resumen de Laboratorio
 
 Con la finalidad de proveer de una plataforma de funcionalidades IaaS, Red Hat apoya a
 Grupo Financiero Actinver implementando los siguientes componentes en un
@@ -76,7 +76,7 @@ Ejecute este comando en los nodos *Control* y en el nodo *Computo*:
 |    | ntp.example.com.        |NTP        |10.10.113.50 |
 |=======================
 
-=== 2 .- Preparando Ambiente de Laboratorio.
+== 2 .- Preparando Ambiente de Laboratorio.
 
 ==== 1.- Validando canales/repositorios necesarios.
 En los nodos de Control, Computo, valide que tiene los repositorios necesarios para la instalación:
@@ -286,7 +286,7 @@ c) Reinicie los nodos.
 # reboot
 ----
 
-=== 3 .- Laboratorio Packstack.
+== 3 .- Laboratorio Packstack.
 
 
 
