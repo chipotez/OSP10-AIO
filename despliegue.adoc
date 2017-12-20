@@ -78,7 +78,7 @@ Ejecute este comando en los nodos *Control* y en el nodo *Computo*:
 
 == 2 .- Preparando Ambiente de Laboratorio.
 
-==== 1.- Validando canales/repositorios necesarios.
+=== 1.- Validando canales/repositorios necesarios.
 En los nodos de Control, Computo, valide que tiene los repositorios necesarios para la instalación:
 
 *[Control01-02]* *[Computo01-03]*
@@ -105,7 +105,7 @@ repolist: 5,747
 TIP: Red Hat actualiza periódicamente sus repositorios, por lo que la cantidad de paquetes puede variar de los que se muestran arriba. 
      Lo mismo para versiones de productos menores o superiores.
      
-==== 2.- Actualizar nodos:
+=== 2.- Actualizar nodos:
 
 Antes de comenzar los laboratorios restantes, asegúrese de que sus paquetes estén actualizados.
 
@@ -130,7 +130,7 @@ b) En caso de tener una nueva versión de Kernel, reinicie los nodos:
 # reboot
 ----
 
-==== 3.- Instalar Utilerias de OpenStack.
+=== 3.- Instalar Utilerias de OpenStack.
 
 OpenStack requiere unos pocos paquetes base y definiciones de políticas (SELinux) en todos los nodos.
 
@@ -142,7 +142,7 @@ a) Como *root*, ejecute el siguiente comando en todos los nodos:
 # yum -y install openstack-utils openstack-selinux
 ----       
        
-==== 4.- Configurando Firewall
+=== 4.- Configurando Firewall
 
 a) Instale el paquete iptables-services en todos los nodos:
 
@@ -161,7 +161,7 @@ b) Iniciar y habilitar los servicios de iptables e ip6tables.
 # systemctl enable iptables.service ip6tables.service
 ----
 
-==== 5.- Configurar NTP Server en nodo Controller.
+=== 5.- Configurar NTP Server en nodo Controller.
 
 a) Vea el archivo /etc/ntp.conf y asegúrese de que contiene las siguientes declaraciones del servidor:
 
@@ -234,7 +234,7 @@ Chain OUTPUT (policy ACCEPT)
 target     prot opt source               destination
 -----------------
 
-==== 6.- Configurando NTP en nodos Control y Compute.
+=== 6.- Configurando NTP en nodos Control y Compute.
 
 a) En los nodos Compute y el nodo Almacenamiento, instale los paquetes NTP requeridos:
 
@@ -256,7 +256,7 @@ d) Inicie y habilite el servicio de NTP.
 # systemctl start ntpd.service
 ----
 
-==== 7 Deshabilitando Network Manager
+=== 7 Deshabilitando Network Manager
 
 En esta sección, primero deshabilite Network Manager en su nodo Controller, Compute nodes. Luego habilite e inicie el servicio de *network* estándar.
 
