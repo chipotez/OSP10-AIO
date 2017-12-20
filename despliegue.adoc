@@ -435,6 +435,150 @@ c) Reinicie los nodos.
 
 
 
+[root@f2lctr01 ~]# yum install openstack-packstackComplementos cargados:enabled_repos_upload, package_upload,
+                    : product-id, search-disabled-repos,
+                    : subscription-manager
+rhel-7-server-extras-rpms                 | 2.0 kB     00:00     
+rhel-7-server-openstack-10-devtools-rpms  | 2.3 kB     00:00     
+rhel-7-server-openstack-10-optools-rpms   | 2.3 kB     00:00     
+rhel-7-server-openstack-10-rpms           | 2.3 kB     00:00     
+rhel-7-server-rh-common-rpms              | 2.1 kB     00:00     
+rhel-7-server-rpms                        | 2.0 kB     00:00     
+rhel-7-server-satellite-tools-6.2-rpms    | 2.1 kB     00:00     
+rhel-ha-for-rhel-7-server-rpms            | 2.0 kB     00:00     
+El paquete 1:openstack-packstack-9.0.3-4.el7ost.noarch ya se encuentra instalado con su versión más reciente
+Nada para hacer
+Uploading Enabled Repositories Report
+Complementos cargados:product-id, subscription-manager
+[root@f2lctr01 ~]# 
+
+
+
+
+[root@f2lctr01 ~]# ssh-keygen -t rsa
+Generating public/private rsa key pair.
+Enter file in which to save the key (/root/.ssh/id_rsa): 
+/root/.ssh/id_rsa already exists.
+Overwrite (y/n)? y
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /root/.ssh/id_rsa.
+Your public key has been saved in /root/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:M13MAJsIA3rWgQoKLkNERlKXb8LLQJB3aFrbWwkeP+k root@f2lctr01.actinver.com.mx
+The key's randomart image is:
++---[RSA 2048]----+
+|*Oo+=.  ...      |
+|*oBo=+ . o +     |
+|BBo*.=.oo   +    |
+|*+o = O  . .     |
+|.. o B .S .      |
+|    + E  o       |
+|                 |
+|                 |
+|                 |
++----[SHA256]-----+
+[root@f2lctr01 ~]# packstack --gen-answer-file ~/answers.txt
+
+
+[root@f2lctr01 ~]# packstack --answer-file ~/answers.txt
+Welcome to the Packstack setup utility
+
+The installation log file is available at: /var/tmp/packstack/20171220-111227-9tDkm_/openstack-setup.log
+
+Installing:
+Clean Up                                             [ DONE ]
+Discovering ip protocol version                      [ DONE ]
+Setting up ssh keys                                  [ DONE ]
+Preparing servers                                    [ DONE ]
+Pre installing Puppet and discovering hosts' details [ DONE ]
+Preparing pre-install entries                        [ DONE ]
+Installing time synchronization via NTP              [ DONE ]
+Setting up CACERT                                    [ DONE ]
+Preparing AMQP entries                               [ DONE ]
+Preparing MariaDB entries                            [ DONE ]
+Fixing Keystone LDAP config parameters to be undef if empty[ DONE ]
+Preparing Keystone entries                           [ DONE ]
+Preparing Glance entries                             [ DONE ]
+Checking if the Cinder server has a cinder-volumes vg[ DONE ]
+Preparing Cinder entries                             [ DONE ]
+Preparing Nova API entries                           [ DONE ]
+Creating ssh keys for Nova migration                 [ DONE ]
+Gathering ssh host keys for Nova migration           [ DONE ]
+Preparing Nova Compute entries                       [ DONE ]
+Preparing Nova Scheduler entries                     [ DONE ]
+Preparing Nova VNC Proxy entries                     [ DONE ]
+Preparing OpenStack Network-related Nova entries     [ DONE ]
+Preparing Nova Common entries                        [ DONE ]
+Preparing Neutron LBaaS Agent entries                [ DONE ]
+Preparing Neutron API entries                        [ DONE ]
+Preparing Neutron L3 entries                         [ DONE ]
+Preparing Neutron L2 Agent entries                   [ DONE ]
+Preparing Neutron DHCP Agent entries                 [ DONE ]
+Preparing Neutron Metering Agent entries             [ DONE ]
+Checking if NetworkManager is enabled and running    [ DONE ]
+Preparing OpenStack Client entries                   [ DONE ]
+Preparing Horizon entries                            [ DONE ]
+Preparing Swift builder entries                      [ DONE ]
+Preparing Swift proxy entries                        [ DONE ]
+Preparing Swift storage entries                      [ DONE ]
+Preparing Heat entries                               [ DONE ]
+Preparing Heat CloudWatch API entries                [ DONE ]
+Preparing Heat CloudFormation API entries            [ DONE ]
+Preparing Gnocchi entries                            [ DONE ]
+Preparing MongoDB entries                            [ DONE ]
+Preparing Redis entries                              [ DONE ]
+Preparing Ceilometer entries                         [ DONE ]
+Preparing Aodh entries                               [ DONE ]
+Preparing Puppet manifests                           [ DONE ]
+Copying Puppet modules and manifests                 [ DONE ]
+Applying 10.12.8.11_controller.pp
+10.12.8.11_controller.pp:                            [ DONE ]       
+Applying 10.12.8.12_network.pp
+Applying 10.12.8.11_network.pp
+10.12.8.11_network.pp:                               [ DONE ]    
+10.12.8.12_network.pp:                               [ DONE ]    
+Applying 10.12.8.15_compute.pp
+Applying 10.12.8.14_compute.pp
+Applying 10.12.8.13_compute.pp
+10.12.8.15_compute.pp:                               [ DONE ]    
+10.12.8.13_compute.pp:                               [ DONE ]    
+10.12.8.14_compute.pp:                               [ DONE ]    
+Applying Puppet manifests                            [ DONE ]
+Finalizing                                           [ DONE ]
+
+ **** Installation completed successfully ******
+
+Additional information:
+ * File /root/keystonerc_admin has been created on OpenStack client host 10.12.8.11. To use the command line tools you need to source the file.
+ * To access the OpenStack Dashboard browse to https://10.12.8.11/dashboard .
+Please, find your login credentials stored in the keystonerc_admin in your home directory.
+ * Because of the kernel update the host 10.12.8.15 requires reboot.
+ * Because of the kernel update the host 10.12.8.14 requires reboot.
+ * Because of the kernel update the host 10.12.8.12 requires reboot.
+ * The installation log file is available at: /var/tmp/packstack/20171220-111227-9tDkm_/openstack-setup.log
+ * The generated manifests are available at: /var/tmp/packstack/20171220-111227-9tDkm_/manifests
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 issues
 
 flushing device ethernet
