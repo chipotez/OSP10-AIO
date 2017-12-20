@@ -1,10 +1,8 @@
-= Asciidoctor EPUB3: Sample Book
+= OSP 10 - All in one
 Miguel Pineda <mpinedam@redhat.com>
 v1.0, 2017-12-19
 :doctype: book
 :keywords: Asciidoctor, samples, e-book, EPUB3, KF8, MOBI, Asciidoctor.js
-
-
 
 
 ////
