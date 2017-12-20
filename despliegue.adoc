@@ -563,6 +563,485 @@ Please, find your login credentials stored in the keystonerc_admin in your home 
 
 
 
+[root@f2lctr01 ~]# source keystonerc_admin 
+[root@f2lctr01 ~(keystone_admin)]# cat keystonerc_admin 
+unset OS_SERVICE_TOKEN
+    export OS_USERNAME=admin
+    export OS_PASSWORD=Actinver01
+    export OS_AUTH_URL=http://10.12.8.11:5000/v2.0
+    export PS1='[\u@\h \W(keystone_admin)]\$ '
+    
+export OS_TENANT_NAME=admin
+export OS_REGION_NAME=RegionOne
+
+
+[root@f2lctr01 ~(keystone_admin)]# openstack-service status
+MainPID=8644 Id=neutron-dhcp-agent.service ActiveState=active
+MainPID=8727 Id=neutron-l3-agent.service ActiveState=active
+MainPID=8685 Id=neutron-lbaasv2-agent.service ActiveState=active
+MainPID=8771 Id=neutron-metadata-agent.service ActiveState=active
+MainPID=8605 Id=neutron-metering-agent.service ActiveState=active
+MainPID=8565 Id=neutron-openvswitch-agent.service ActiveState=active
+MainPID=6147 Id=neutron-server.service ActiveState=active
+MainPID=28123 Id=openstack-aodh-evaluator.service ActiveState=active
+MainPID=28040 Id=openstack-aodh-listener.service ActiveState=active
+MainPID=28075 Id=openstack-aodh-notifier.service ActiveState=active
+MainPID=29703 Id=openstack-ceilometer-central.service ActiveState=active
+MainPID=29661 Id=openstack-ceilometer-collector.service ActiveState=active
+MainPID=29622 Id=openstack-ceilometer-notification.service ActiveState=active
+MainPID=29332 Id=openstack-cinder-api.service ActiveState=active
+MainPID=29371 Id=openstack-cinder-backup.service ActiveState=active
+MainPID=29447 Id=openstack-cinder-scheduler.service ActiveState=active
+MainPID=29406 Id=openstack-cinder-volume.service ActiveState=active
+MainPID=5697 Id=openstack-glance-api.service ActiveState=active
+MainPID=5490 Id=openstack-glance-registry.service ActiveState=active
+MainPID=28274 Id=openstack-gnocchi-metricd.service ActiveState=active
+MainPID=28227 Id=openstack-gnocchi-statsd.service ActiveState=active
+MainPID=6299 Id=openstack-heat-api-cfn.service ActiveState=active
+MainPID=6420 Id=openstack-heat-api-cloudwatch.service ActiveState=active
+MainPID=6373 Id=openstack-heat-api.service ActiveState=active
+MainPID=6338 Id=openstack-heat-engine.service ActiveState=active
+MainPID=0 Id=openstack-losetup.service ActiveState=active
+MainPID=28923 Id=openstack-nova-api.service ActiveState=active
+MainPID=28782 Id=openstack-nova-cert.service ActiveState=active
+MainPID=29170 Id=openstack-nova-conductor.service ActiveState=active
+MainPID=28874 Id=openstack-nova-consoleauth.service ActiveState=active
+MainPID=28841 Id=openstack-nova-novncproxy.service ActiveState=active
+MainPID=29114 Id=openstack-nova-scheduler.service ActiveState=active
+MainPID=4223 Id=openstack-swift-account-auditor.service ActiveState=active
+MainPID=3809 Id=openstack-swift-account-reaper.service ActiveState=active
+MainPID=3853 Id=openstack-swift-account-replicator.service ActiveState=active
+MainPID=3978 Id=openstack-swift-account.service ActiveState=active
+MainPID=3896 Id=openstack-swift-container-auditor.service ActiveState=active
+MainPID=3766 Id=openstack-swift-container-replicator.service ActiveState=active
+MainPID=5987 Id=openstack-swift-container-updater.service ActiveState=active
+MainPID=3939 Id=openstack-swift-container.service ActiveState=active
+MainPID=4176 Id=openstack-swift-object-auditor.service ActiveState=active
+MainPID=4127 Id=openstack-swift-object-expirer.service ActiveState=active
+MainPID=4069 Id=openstack-swift-object-replicator.service ActiveState=active
+MainPID=5736 Id=openstack-swift-object-updater.service ActiveState=active
+MainPID=4023 Id=openstack-swift-object.service ActiveState=active
+MainPID=5529 Id=openstack-swift-proxy.service ActiveState=active
+
+
+
+
+
+
+
+
+[root@f2lctr01 ~(keystone_admin)]# nova hypervisor-list
++----+-----------------------------+-------+---------+
+| ID | Hypervisor hostname         | State | Status  |
++----+-----------------------------+-------+---------+
+| 1  | f2lcompute3.actinver.com.mx | up    | enabled |
+| 2  | f2lcompute1.actinver.com.mx | up    | enabled |
+| 3  | f2lcompute2.actinver.com.mx | up    | enabled |
++----+-----------------------------+-------+---------+
+
+
+
+
+[root@f2lctr01 ~(keystone_admin)]# nova hypervisor-show f2lcompute1.actinver.com.mx
++---------------------------+------------------------------------------+
+| Property                  | Value                                    |
++---------------------------+------------------------------------------+
+| cpu_info_arch             | x86_64                                   |
+| cpu_info_features         | ["pge", "avx", "xsaveopt", "clflush",    |
+|                           | "sep", "syscall", "tsc-deadline",        |
+|                           | "dtes64", "msr", "xsave", "vmx", "xtpr", |
+|                           | "cmov", "pcid", "est", "pat", "monitor", |
+|                           | "smx", "pbe", "lm", "tsc", "nx", "fxsr", |
+|                           | "tm", "sse4.1", "pae", "sse4.2",         |
+|                           | "pclmuldq", "acpi", "vme", "mmx",        |
+|                           | "osxsave", "cx8", "mce", "de", "rdtscp", |
+|                           | "ht", "dca", "lahf_lm", "pdcm", "mca",   |
+|                           | "pdpe1gb", "apic", "sse", "pse", "ds",   |
+|                           | "invtsc", "pni", "tm2", "aes", "sse2",   |
+|                           | "ss", "ds_cpl", "arat", "ssse3", "fpu",  |
+|                           | "cx16", "pse36", "mtrr", "popcnt",       |
+|                           | "x2apic"]                                |
+| cpu_info_model            | SandyBridge                              |
+| cpu_info_topology_cells   | 2                                        |
+| cpu_info_topology_cores   | 8                                        |
+| cpu_info_topology_sockets | 1                                        |
+| cpu_info_topology_threads | 2                                        |
+| cpu_info_vendor           | Intel                                    |
+| current_workload          | 0                                        |
+| disk_available_least      | 47                                       |
+| free_disk_gb              | 49                                       |
+| free_ram_mb               | 130528                                   |
+| host_ip                   | 10.12.8.13                               |
+| hypervisor_hostname       | f2lcompute1.actinver.com.mx              |
+| hypervisor_type           | QEMU                                     |
+| hypervisor_version        | 2009000                                  |
+| id                        | 2                                        |
+| local_gb                  | 49                                       |
+| local_gb_used             | 0                                        |
+| memory_mb                 | 131040                                   |
+| memory_mb_used            | 512                                      |
+| running_vms               | 0                                        |
+| service_disabled_reason   | None                                     |
+| service_host              | f2lcompute1.actinver.com.mx              |
+| service_id                | 22                                       |
+| state                     | up                                       |
+| status                    | enabled                                  |
+| vcpus                     | 32                                       |
+| vcpus_used                | 0                                        |
++---------------------------+------------------------------------------+
+
+
+
+
+[root@f2lctr01 ~(keystone_admin)]# nova hypervisor-show f2lcompute2.actinver.com.mx
++---------------------------+------------------------------------------+
+| Property                  | Value                                    |
++---------------------------+------------------------------------------+
+| cpu_info_arch             | x86_64                                   |
+| cpu_info_features         | ["pge", "avx", "xsaveopt", "clflush",    |
+|                           | "sep", "syscall", "tsc-deadline",        |
+|                           | "dtes64", "msr", "xsave", "vmx", "xtpr", |
+|                           | "cmov", "pcid", "est", "pat", "monitor", |
+|                           | "smx", "pbe", "lm", "tsc", "nx", "fxsr", |
+|                           | "tm", "sse4.1", "pae", "sse4.2",         |
+|                           | "pclmuldq", "acpi", "vme", "mmx",        |
+|                           | "osxsave", "cx8", "mce", "de", "rdtscp", |
+|                           | "ht", "dca", "lahf_lm", "pdcm", "mca",   |
+|                           | "pdpe1gb", "apic", "sse", "pse", "ds",   |
+|                           | "invtsc", "pni", "tm2", "aes", "sse2",   |
+|                           | "ss", "ds_cpl", "arat", "ssse3", "fpu",  |
+|                           | "cx16", "pse36", "mtrr", "popcnt",       |
+|                           | "x2apic"]                                |
+| cpu_info_model            | SandyBridge                              |
+| cpu_info_topology_cells   | 2                                        |
+| cpu_info_topology_cores   | 8                                        |
+| cpu_info_topology_sockets | 1                                        |
+| cpu_info_topology_threads | 2                                        |
+| cpu_info_vendor           | Intel                                    |
+| current_workload          | 0                                        |
+| disk_available_least      | 47                                       |
+| free_disk_gb              | 49                                       |
+| free_ram_mb               | 130529                                   |
+| host_ip                   | 10.12.8.14                               |
+| hypervisor_hostname       | f2lcompute2.actinver.com.mx              |
+| hypervisor_type           | QEMU                                     |
+| hypervisor_version        | 2009000                                  |
+| id                        | 3                                        |
+| local_gb                  | 49                                       |
+| local_gb_used             | 0                                        |
+| memory_mb                 | 131041                                   |
+| memory_mb_used            | 512                                      |
+| running_vms               | 0                                        |
+| service_disabled_reason   | None                                     |
+| service_host              | f2lcompute2.actinver.com.mx              |
+| service_id                | 23                                       |
+| state                     | up                                       |
+| status                    | enabled                                  |
+| vcpus                     | 32                                       |
+| vcpus_used                | 0                                        |
++---------------------------+------------------------------------------+
+
+
+
+[root@f2lctr01 ~(keystone_admin)]# nova hypervisor-show f2lcompute3.actinver.com.mx
++---------------------------+------------------------------------------+
+| Property                  | Value                                    |
++---------------------------+------------------------------------------+
+| cpu_info_arch             | x86_64                                   |
+| cpu_info_features         | ["pge", "avx", "xsaveopt", "clflush",    |
+|                           | "sep", "syscall", "tsc-deadline",        |
+|                           | "dtes64", "msr", "xsave", "vmx", "xtpr", |
+|                           | "cmov", "pcid", "est", "pat", "monitor", |
+|                           | "smx", "pbe", "lm", "tsc", "nx", "fxsr", |
+|                           | "tm", "sse4.1", "pae", "sse4.2",         |
+|                           | "pclmuldq", "acpi", "vme", "mmx",        |
+|                           | "osxsave", "cx8", "mce", "de", "rdtscp", |
+|                           | "ht", "dca", "lahf_lm", "pdcm", "mca",   |
+|                           | "pdpe1gb", "apic", "sse", "pse", "ds",   |
+|                           | "invtsc", "pni", "tm2", "aes", "sse2",   |
+|                           | "ss", "ds_cpl", "arat", "ssse3", "fpu",  |
+|                           | "cx16", "pse36", "mtrr", "popcnt",       |
+|                           | "x2apic"]                                |
+| cpu_info_model            | SandyBridge                              |
+| cpu_info_topology_cells   | 2                                        |
+| cpu_info_topology_cores   | 8                                        |
+| cpu_info_topology_sockets | 1                                        |
+| cpu_info_topology_threads | 2                                        |
+| cpu_info_vendor           | Intel                                    |
+| current_workload          | 0                                        |
+| disk_available_least      | 47                                       |
+| free_disk_gb              | 49                                       |
+| free_ram_mb               | 130528                                   |
+| host_ip                   | 10.12.8.15                               |
+| hypervisor_hostname       | f2lcompute3.actinver.com.mx              |
+| hypervisor_type           | QEMU                                     |
+| hypervisor_version        | 2009000                                  |
+| id                        | 1                                        |
+| local_gb                  | 49                                       |
+| local_gb_used             | 0                                        |
+| memory_mb                 | 131040                                   |
+| memory_mb_used            | 512                                      |
+| running_vms               | 0                                        |
+| service_disabled_reason   | None                                     |
+| service_host              | f2lcompute3.actinver.com.mx              |
+| service_id                | 21                                       |
+| state                     | up                                       |
+| status                    | enabled                                  |
+| vcpus                     | 32                                       |
+| vcpus_used                | 0                                        |
++---------------------------+------------------------------------------+
+
+
+
+
+[root@f2lctr01 network-scripts]# ls
+ifcfg-br-ex          ifcfg-enp12s0f6  ifdown-isdn      ifdown-tunnel  ifup-ovs     ifup-TeamPort
+ifcfg-eno1.706       ifcfg-enp12s0f7  ifdown-ovs       ifup           ifup-plip    ifup-tunnel
+ifcfg-enp0s29u1u1u5  ifcfg-lo         ifdown-post      ifup-aliases   ifup-plusb   ifup-wireless
+ifcfg-enp12s0f1      ifdown           ifdown-ppp       ifup-bnep      ifup-post    init.ipv6-global
+ifcfg-enp12s0f2.506  ifdown-bnep      ifdown-routes    ifup-eth       ifup-ppp     network-functions
+ifcfg-enp12s0f3      ifdown-eth       ifdown-sit       ifup-ippp      ifup-routes  network-functions-ipv6
+ifcfg-enp12s0f4      ifdown-ippp      ifdown-Team      ifup-ipv6      ifup-sit
+ifcfg-enp12s0f5      ifdown-ipv6      ifdown-TeamPort  ifup-isdn      ifup-Team
+[root@f2lctr01 network-scripts]# 
+[root@f2lctr01 network-scripts]# 
+[root@f2lctr01 network-scripts]# cat ifcfg-br-ex
+DEFROUTE=yes
+ONBOOT=yes
+IPADDR=10.12.8.11
+PREFIX=24
+GATEWAY=10.12.8.254
+DEVICE=br-ex
+NAME=br-ex
+DEVICETYPE=ovs
+OVSBOOTPROTO=static
+TYPE=OVSBridge
+[root@f2lctr01 network-scripts]# 
+[root@f2lctr01 network-scripts]# 
+[root@f2lctr01 network-scripts]# cat ifcfg-enp12s0f2.506
+DEVICE=enp12s0f2.506
+NAME=enp12s0f2.506
+DEVICETYPE=ovs
+TYPE=OVSPort
+OVS_BRIDGE=br-ex
+ONBOOT=yes
+BOOTPROTO=none
+VLAN=yes
+
+[root@f2lctr01 network-scripts]# ip r s
+default via 10.12.8.254 dev br-ex 
+10.10.205.0/24 dev eno1.706 proto kernel scope link src 10.10.205.19 
+10.12.8.0/24 dev br-ex proto kernel scope link src 10.12.8.11 
+169.254.0.0/16 dev eno1.706 scope link metric 1017 
+169.254.0.0/16 dev enp12s0f2.506 scope link metric 1021 
+169.254.0.0/16 dev br-ex scope link metric 1022
+
+
+
+
+
+
+
+
+
+
+
+[root@f2lctr02 network-scripts]# ls ; cat ifcfg-br-ex
+ifcfg-br-ex          ifcfg-enp12s0f4  ifdown-bnep  ifdown-post      ifdown-tunnel  ifup-ipv6   ifup-ppp       ifup-wireless
+ifcfg-eno1.706       ifcfg-enp12s0f5  ifdown-eth   ifdown-ppp       ifup           ifup-isdn   ifup-routes    init.ipv6-global
+ifcfg-enp0s29u1u1u5  ifcfg-enp12s0f6  ifdown-ippp  ifdown-routes    ifup-aliases   ifup-ovs    ifup-sit       network-functions
+ifcfg-enp12s0f1      ifcfg-enp12s0f7  ifdown-ipv6  ifdown-sit       ifup-bnep      ifup-plip   ifup-Team      network-functions-ipv6
+ifcfg-enp12s0f2.506  ifcfg-lo         ifdown-isdn  ifdown-Team      ifup-eth       ifup-plusb  ifup-TeamPort
+ifcfg-enp12s0f3      ifdown           ifdown-ovs   ifdown-TeamPort  ifup-ippp      ifup-post   ifup-tunnel
+DEFROUTE=yes
+ONBOOT=yes
+IPADDR=10.12.8.12
+PREFIX=24
+GATEWAY=10.12.8.254
+DEVICE=br-ex
+NAME=br-ex
+DEVICETYPE=ovs
+OVSBOOTPROTO=static
+TYPE=OVSBridge
+
+[root@f2lctr02 network-scripts]# cat ifcfg-enp12s0f2.506
+DEVICE=enp12s0f2.506
+NAME=enp12s0f2.506
+DEVICETYPE=ovs
+TYPE=OVSPort
+OVS_BRIDGE=br-ex
+ONBOOT=yes
+BOOTPROTO=none
+VLAN=yes
+
+[root@f2lctr02 network-scripts]# ip r s
+default via 10.12.8.254 dev br-ex 
+10.10.205.0/24 dev eno1.706 proto kernel scope link src 10.10.205.20 
+10.12.8.0/24 dev br-ex proto kernel scope link src 10.12.8.12 
+169.254.0.0/16 dev eno1.706 scope link metric 1022 
+169.254.0.0/16 dev enp12s0f2.506 scope link metric 1026 
+169.254.0.0/16 dev br-ex scope link metric 1027 
+[root@f2lctr02 network-scripts]# 
+
+
+
+
+
+
+
+
+[root@f2lcompute1 network-scripts]# ls 
+ifcfg-br-ex          ifcfg-enp12s0f4  ifdown-bnep  ifdown-ovs     ifdown-TeamPort  ifup-ib    ifup-plusb   ifup-TeamPort
+ifcfg-eno1.706       ifcfg-enp12s0f5  ifdown-eth   ifdown-post    ifdown-tunnel    ifup-ippp  ifup-post    ifup-tunnel
+ifcfg-enp0s29u1u1u5  ifcfg-enp12s0f6  ifdown-ib    ifdown-ppp     ifup             ifup-ipv6  ifup-ppp     ifup-wireless
+ifcfg-enp12s0f1      ifcfg-enp12s0f7  ifdown-ippp  ifdown-routes  ifup-aliases     ifup-isdn  ifup-routes  init.ipv6-global
+ifcfg-enp12s0f2.506  ifcfg-lo         ifdown-ipv6  ifdown-sit     ifup-bnep        ifup-ovs   ifup-sit     network-functions
+ifcfg-enp12s0f3      ifdown           ifdown-isdn  ifdown-Team    ifup-eth         ifup-plip  ifup-Team    network-functions-ipv6
+[root@f2lcompute1 network-scripts]# cat ifcfg-br-ex 
+DEFROUTE=yes
+ONBOOT=yes
+IPADDR=10.12.8.13
+PREFIX=24
+GATEWAY=10.12.8.254
+DEVICE=br-ex
+NAME=br-ex
+DEVICETYPE=ovs
+OVSBOOTPROTO=static
+TYPE=OVSBridge
+[root@f2lcompute1 network-scripts]# 
+[root@f2lcompute1 network-scripts]# 
+[root@f2lcompute1 network-scripts]# 
+[root@f2lcompute1 network-scripts]# cat ifcfg-br-ex
+DEFROUTE=yes
+ONBOOT=yes
+IPADDR=10.12.8.13
+PREFIX=24
+GATEWAY=10.12.8.254
+DEVICE=br-ex
+NAME=br-ex
+DEVICETYPE=ovs
+OVSBOOTPROTO=static
+TYPE=OVSBridge
+
+
+[root@f2lcompute1 network-scripts]# ip r s
+default via 10.12.8.254 dev br-ex 
+10.10.205.0/24 dev eno1.706 proto kernel scope link src 10.10.205.21 
+10.12.8.0/24 dev br-ex proto kernel scope link src 10.12.8.13 
+169.254.0.0/16 dev enp0s29u1u1u5 scope link metric 1010 
+169.254.0.0/16 dev eno1.706 scope link metric 1031 
+169.254.0.0/16 dev enp12s0f2.506 scope link metric 1035 
+169.254.0.0/16 dev br-ex scope link metric 1036 
+169.254.95.0/24 dev enp0s29u1u1u5 proto kernel scope link src 169.254.95.120 
+
+
+
+
+
+
+
+
+
+
+
+[root@f2lcompute2 network-scripts]# ls
+ifcfg-br-ex          ifcfg-lo     ifdown-ppp       ifup-ib      ifup-sit
+ifcfg-eno1.706       ifdown       ifdown-routes    ifup-ippp    ifup-Team
+ifcfg-enp0s29u1u1u5  ifdown-bnep  ifdown-sit       ifup-ipv6    ifup-TeamPort
+ifcfg-enp12s0f1      ifdown-eth   ifdown-Team      ifup-isdn    ifup-tunnel
+ifcfg-enp12s0f2.506  ifdown-ib    ifdown-TeamPort  ifup-ovs     ifup-wireless
+ifcfg-enp12s0f3      ifdown-ippp  ifdown-tunnel    ifup-plip    init.ipv6-global
+ifcfg-enp12s0f4      ifdown-ipv6  ifup             ifup-plusb   network-functions
+ifcfg-enp12s0f5      ifdown-isdn  ifup-aliases     ifup-post    network-functions-ipv6
+ifcfg-enp12s0f6      ifdown-ovs   ifup-bnep        ifup-ppp
+ifcfg-enp12s0f7      ifdown-post  ifup-eth         ifup-routes
+[root@f2lcompute2 network-scripts]# cat ifcfg-br-ex 
+DEFROUTE=yes
+ONBOOT=yes
+IPADDR=10.12.8.14
+PREFIX=24
+GATEWAY=10.12.8.254
+DEVICE=br-ex
+NAME=br-ex
+DEVICETYPE=ovs
+OVSBOOTPROTO=static
+TYPE=OVSBridge
+[root@f2lcompute2 network-scripts]# 
+[root@f2lcompute2 network-scripts]# 
+[root@f2lcompute2 network-scripts]# cat ifcfg-enp12s0f2.506
+DEVICE=enp12s0f2.506
+NAME=enp12s0f2.506
+DEVICETYPE=ovs
+TYPE=OVSPort
+OVS_BRIDGE=br-ex
+ONBOOT=yes
+BOOTPROTO=none
+VLAN=yes
+
+[root@f2lcompute2 network-scripts]# ip r s
+default via 10.12.8.254 dev br-ex 
+10.10.205.0/24 dev eno1.706 proto kernel scope link src 10.10.205.23 
+10.12.8.0/24 dev br-ex proto kernel scope link src 10.12.8.14 
+169.254.0.0/16 dev eno1.706 scope link metric 1016 
+169.254.0.0/16 dev enp12s0f2.506 scope link metric 1020 
+169.254.0.0/16 dev br-ex scope link metric 1021 
+
+
+
+
+
+
+[root@f2lcompute3 network-scripts]# ls
+ifcfg-br-ex          ifcfg-lo     ifdown-ppp       ifup-ib      ifup-sit
+ifcfg-eno1.706       ifdown       ifdown-routes    ifup-ippp    ifup-Team
+ifcfg-enp0s29u1u1u5  ifdown-bnep  ifdown-sit       ifup-ipv6    ifup-TeamPort
+ifcfg-enp12s0f1      ifdown-eth   ifdown-Team      ifup-isdn    ifup-tunnel
+ifcfg-enp12s0f2.506  ifdown-ib    ifdown-TeamPort  ifup-ovs     ifup-wireless
+ifcfg-enp12s0f3      ifdown-ippp  ifdown-tunnel    ifup-plip    init.ipv6-global
+ifcfg-enp12s0f4      ifdown-ipv6  ifup             ifup-plusb   network-functions
+ifcfg-enp12s0f5      ifdown-isdn  ifup-aliases     ifup-post    network-functions-ipv6
+ifcfg-enp12s0f6      ifdown-ovs   ifup-bnep        ifup-ppp
+ifcfg-enp12s0f7      ifdown-post  ifup-eth         ifup-routes
+[root@f2lcompute3 network-scripts]# 
+[root@f2lcompute3 network-scripts]# 
+[root@f2lcompute3 network-scripts]# cat ifcfg-br-ex 
+DEFROUTE=yes
+ONBOOT=yes
+IPADDR=10.12.8.15
+PREFIX=24
+GATEWAY=10.12.8.254
+DEVICE=br-ex
+NAME=br-ex
+DEVICETYPE=ovs
+OVSBOOTPROTO=static
+TYPE=OVSBridge
+[root@f2lcompute3 network-scripts]# 
+[root@f2lcompute3 network-scripts]# 
+[root@f2lcompute3 network-scripts]# cat ifcfg-enp12s0f2.506 
+DEVICE=enp12s0f2.506
+NAME=enp12s0f2.506
+DEVICETYPE=ovs
+TYPE=OVSPort
+OVS_BRIDGE=br-ex
+ONBOOT=yes
+BOOTPROTO=none
+VLAN=yes
+
+
+[root@f2lcompute3 network-scripts]# ip r s
+default via 10.12.8.254 dev br-ex 
+10.10.205.0/24 dev eno1.706 proto kernel scope link src 10.10.205.24 
+10.12.8.0/24 dev br-ex proto kernel scope link src 10.12.8.15 
+169.254.0.0/16 dev eno1.706 scope link metric 1016 
+169.254.0.0/16 dev enp12s0f2.506 scope link metric 1020 
+169.254.0.0/16 dev br-ex scope link metric 1021 
+
+
+
+
+
+
+
 
 
 
