@@ -1,22 +1,16 @@
-== OSP10 - AIO
-:Author:    Miguel Angel Pineda
-:Email:     <mpinedam@redhat.com>
-:Date: 19-Dic-2017
-:Revision:  1.2
+= Asciidoctor EPUB3: Sample Book
+Author Name
+v1.0, 2014-04-15
 :doctype: book
+:creator: {author}
+:producer: Asciidoctor
 :keywords: Asciidoctor, samples, e-book, EPUB3, KF8, MOBI, Asciidoctor.js
+:copyright: CC-BY-SA 3.0
+:source-highlighter: coderay
+ifndef::ebook-format[:leveloffset: 1]
 
-include::asciidoctor-epub3-readme.adoc[]
 
-include::sample-content.adoc[]
 
-include::asciidoctor-js-introduction.adoc[]
-
-include::asciidoctor-js-extension.adoc[]
-
-Autor:   {author}
-
-Versión: {revision}
 
 ////
 *Comment* 
@@ -27,9 +21,10 @@ S7 compute02 - f2lcompute02.act.com.mx    10.10.205.20 10.17.32.13
 S6 compute03 - f2lcompute03.act.com.mx    10.10.205.21 10.17.32.14
 V1             v1plsatellite01.act.com.mx 10.10.110.21
 V2             v2plntpserver01.act.com.mx 10.10.113.50
+Actinver01
 ////
 
-=== 1 .- Resumén de Laboratorio.
+== 1 Resumen de Laboratorio
 
 Con la finalidad de proveer de una plataforma de funcionalidades IaaS, Red Hat apoya a
 Grupo Financiero Actinver implementando los siguientes componentes en un
@@ -52,7 +47,7 @@ IMPORTANT: Este laboratorio se realizó con Packstack debido a que durante la in
                        problema de HW.
 
 
-==== Componentes del entorno de laboratorio
+=== Componentes del entorno de laboratorio
 
 * Una estación de trabajo cliente.
 * Dos nodos control
@@ -78,12 +73,12 @@ Ejecute este comando en los nodos *Control* y en el nodo *Computo*:
 .Segmentación de equipos
 [options="header,footer"]
 |=======================
-| Server No.  | Hostname       |Rol        |Ip MGNT      |Ip Public
-|S6  | ctr01.example.com       |Controller |10.10.205.19 |10.12.8.11
-|S7  | ctr02.example.com       |Controller |10.10.205.20 |10.12.8.12
-|S9  | compute01.example.com   |Compute    |10.10.205.21 |10.12.8.13
-|S11 | compute02.example.com   |Compute    |10.10.205.23 |10.12.8.14
-|S12 | compute03.example.com   |Compute    |10.10.205.23 |10.12.8.15
+| Server No.  | Hostname       |Rol        |Ip MGNT      |Ip Public  | interfaz
+|S6  | ctr01.example.com       |Controller |10.10.205.19 |10.12.8.11 |4 y 5
+|S7  | ctr02.example.com       |Controller |10.10.205.20 |10.12.8.12 |4 y 5
+|S9  | compute01.example.com   |Compute    |10.10.205.21 |10.12.8.13 |4 y 5
+|S11 | compute02.example.com   |Compute    |10.10.205.23 |10.12.8.14 |4 y 5 
+|S12 | compute03.example.com   |Compute    |10.10.205.23 |10.12.8.15 |4 y 5 
 |    | satellite01.example.com |Satellite  |10.10.110.21 |    N/A
 |    | ntp.example.com.        |NTP        |10.10.113.50 |
 |=======================
