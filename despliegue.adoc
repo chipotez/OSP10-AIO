@@ -71,7 +71,7 @@ Ejecute este comando en los nodos *Control* y en el nodo *Computo*:
 |S7  | ctr02.example.com       |Controller |10.10.205.20 |10.12.8.12/24/10.12.8.254/10.11.9.250 |4 y 5
 |S9  | compute01.example.com   |Compute    |10.10.205.21 |10.12.8.13/24/10.12.8.254/10.11.9.250 |4 y 5
 |S11 | compute02.example.com   |Compute    |10.10.205.23 |10.12.8.14/24/10.12.8.254/10.11.9.250 |4 y 5 
-|S12 | compute03.example.com   |Compute    |10.10.205.23 |10.12.8.15/24/10.12.8.254/10.11.9.250 |4 y 5 
+|S12 | compute03.example.com   |Compute    |10.10.205.24 |10.12.8.15/24/10.12.8.254/10.11.9.250 |4 y 5 
 |    | satellite01.example.com |Satellite  |10.10.110.21 |    N/A
 |    | ntp.example.com.        |NTP        |10.10.113.50 |
 |=======================
