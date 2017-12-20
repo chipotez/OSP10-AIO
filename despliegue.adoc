@@ -59,7 +59,7 @@ Por ejemplo:
 
 Ejecute este comando en los nodos *Control* y en el nodo *Computo*:
 
-*[Control]* *[Computo]*
+*[Control01-02]* *[Computo01-03]*
 
 ----
 # yum install ntp
@@ -83,7 +83,7 @@ Ejecute este comando en los nodos *Control* y en el nodo *Computo*:
 ==== 1.- Validando canales/repositorios necesarios.
 En los nodos de Control, Computo, valide que tiene los repositorios necesarios para la instalación:
 
-*[Control]* *[Computo]*
+*[Control01-02]* *[Computo01-03]*
 
 ----
 # yum repolist
@@ -113,7 +113,7 @@ Antes de comenzar los laboratorios restantes, asegúrese de que sus paquetes est
 
 a)  Actualize los paquetes en todos los nodos
 
-*[Control]* *[Computo]*
+*[Control01-02]* *[Computo01-03]*
 
 ----
 # yum -y update
@@ -138,7 +138,7 @@ OpenStack requiere unos pocos paquetes base y definiciones de políticas (SELinu
 
 a) Como *root*, ejecute el siguiente comando en todos los nodos:
 
-*[Control]* *[Computo]*
+*[Control01-02]* *[Computo01-03]*
 
 ----
 # yum -y install openstack-utils openstack-selinux
@@ -148,7 +148,7 @@ a) Como *root*, ejecute el siguiente comando en todos los nodos:
 
 a) Instale el paquete iptables-services en todos los nodos:
 
-*[Control]* *[Computo]*
+*[Control01-03]* *[Computo01-03]*
 
 ----
 # yum -y install iptables-services
@@ -156,7 +156,7 @@ a) Instale el paquete iptables-services en todos los nodos:
 
 b) Iniciar y habilitar los servicios de iptables e ip6tables.
 
-*[Control]* *[Compute]*
+*[Control01-02]* *[Compute01-03]*
 
 ----
 # systemctl start iptables.service ip6tables.service
@@ -236,7 +236,59 @@ Chain OUTPUT (policy ACCEPT)
 target     prot opt source               destination
 -----------------
 
+==== 6.- Configurando NTP en nodos Control y Compute.
 
+a) En los nodos Compute y el nodo Almacenamiento, instale los paquetes NTP requeridos:
+
+b) Edite el archivo /etc/ntp.conf para que la declaración del servidor apunte a su nodo Control.
+
+*[Control02]* *[Computo01-03]*
+----
+server ctrl.example.com iburst
+----
+
+c) Guarde y Cierre el Archivo.
+
+d) Inicie y habilite el servicio de NTP. 
+
+*[Control02]* *[Computo01-03]*
+
+----
+# systemctl enable ntpd.service
+# systemctl start ntpd.service
+----
+
+==== 7 Deshabilitando Network Manager
+
+En esta sección, primero deshabilite Network Manager en su nodo Controller, Compute nodes. Luego habilite e inicie el servicio de *network* estándar.
+
+a) Como usuario root, detenga y deshabilite el servicio de Network Manager:
+
+*[Control01-02]* *[Computo01-03]*
+
+----
+# systemctl stop NetworkManager.service
+# systemctl disable NetworkManager.service
+----
+
+b) Asegúrese de que el servicio *network* tome el control de las interfaces estableciendo la opción NM_CONTROLLED en "no":
+
+*[Control01-02]* *[Computo01-03]*
+
+----
+echo 'NM_CONTROLLED="no"' | tee -a /etc/sysconfig/network-scripts/ifcfg-eth0
+
+----
+
+c) Reinicie los nodos.
+
+*[Control01-02]* *[Computo01-03]*
+
+----
+# reboot
+----
+
+=== 3 .- Laboratorio Packstack.
 
 
 
