@@ -1038,6 +1038,495 @@ default via 10.12.8.254 dev br-ex
 
 
 
+== 4 .- Revisando DB.
+
+[root@f2lctr01 ~(keystone_admin)]# mysql
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 531
+Server version: 5.5.42-MariaDB-wsrep MariaDB Server, wsrep_25.11.r4026
+
+Copyright (c) 2000, 2017, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> 
+MariaDB [(none)]> 
+MariaDB [(none)]> 
+MariaDB [(none)]> 
+MariaDB [(none)]> 
+MariaDB [(none)]> SELECT User, Host, Password FROM mysql.user;
++----------------+-----------+-------------------------------------------+
+| User           | Host      | Password                                  |
++----------------+-----------+-------------------------------------------+
+| root           | localhost | *7836275A3B7A3E6BABB3410287E022F4617B829D |
+| keystone_admin | %         | *9BCFF9D969076DC60C2F02357F4EE96D967F632F |
+| keystone_admin | 127.0.0.1 | *9BCFF9D969076DC60C2F02357F4EE96D967F632F |
+| gnocchi        | %         | *C2C100AA8F6E6C19BF2B7134D3F4E96AC6F1E787 |
+| glance         | %         | *DDF23C32F92A55468AEAC4B43295D98160B613B3 |
+| nova           | %         | *6B42410F859FC02B52BEF6A8646B07F23B4FAF42 |
+| nova_api       | %         | *6B42410F859FC02B52BEF6A8646B07F23B4FAF42 |
+| cinder         | %         | *7EDF1D69BD259BD5358E63B501289414A68695BC |
+| neutron        | %         | *2BDCAD057E1A2B6730A90B466C093A09DFB862F8 |
+| heat           | %         | *03B9EEFDC12049A45E6564CE18EB437230BDFBA7 |
++----------------+-----------+-------------------------------------------+
+10 rows in set (0.00 sec)
+
+MariaDB [(none)]> 
+MariaDB [(none)]> 
+MariaDB [(none)]> 
+MariaDB [(none)]> 
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| cinder             |
+| glance             |
+| gnocchi            |
+| heat               |
+| keystone           |
+| mysql              |
+| neutron            |
+| nova               |
+| nova_api           |
+| performance_schema |
+| test               |
++--------------------+
+12 rows in set (0.01 sec)
+
+MariaDB [(none)]> 
+MariaDB [(none)]> 
+MariaDB [(none)]> 
+MariaDB [(none)]> 
+MariaDB [(none)]> use nova;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+MariaDB [nova]> 
+MariaDB [nova]> 
+MariaDB [nova]> 
+MariaDB [nova]> 
+MariaDB [nova]> 
+MariaDB [nova]> 
+MariaDB [nova]> SHOW TABLES;
++--------------------------------------------+
+| Tables_in_nova                             |
++--------------------------------------------+
+| agent_builds                               |
+| aggregate_hosts                            |
+| aggregate_metadata                         |
+| aggregates                                 |
+| allocations                                |
+| block_device_mapping                       |
+| bw_usage_cache                             |
+| cells                                      |
+| certificates                               |
+| compute_nodes                              |
+| console_auth_tokens                        |
+| console_pools                              |
+| consoles                                   |
+| dns_domains                                |
+| fixed_ips                                  |
+| floating_ips                               |
+| instance_actions                           |
+| instance_actions_events                    |
+| instance_extra                             |
+| instance_faults                            |
+| instance_group_member                      |
+| instance_group_policy                      |
+| instance_groups                            |
+| instance_id_mappings                       |
+| instance_info_caches                       |
+| instance_metadata                          |
+| instance_system_metadata                   |
+| instance_type_extra_specs                  |
+| instance_type_projects                     |
+| instance_types                             |
+| instances                                  |
+| inventories                                |
+| key_pairs                                  |
+| migrate_version                            |
+| migrations                                 |
+| networks                                   |
+| pci_devices                                |
+| project_user_quotas                        |
+| provider_fw_rules                          |
+| quota_classes                              |
+| quota_usages                               |
+| quotas                                     |
+| reservations                               |
+| resource_provider_aggregates               |
+| resource_providers                         |
+| s3_images                                  |
+| security_group_default_rules               |
+| security_group_instance_association        |
+| security_group_rules                       |
+| security_groups                            |
+| services                                   |
+| shadow_agent_builds                        |
+| shadow_aggregate_hosts                     |
+| shadow_aggregate_metadata                  |
+| shadow_aggregates                          |
+| shadow_block_device_mapping                |
+| shadow_bw_usage_cache                      |
+| shadow_cells                               |
+| shadow_certificates                        |
+| shadow_compute_nodes                       |
+| shadow_console_pools                       |
+| shadow_consoles                            |
+| shadow_dns_domains                         |
+| shadow_fixed_ips                           |
+| shadow_floating_ips                        |
+| shadow_instance_actions                    |
+| shadow_instance_actions_events             |
+| shadow_instance_extra                      |
+| shadow_instance_faults                     |
+| shadow_instance_group_member               |
+| shadow_instance_group_policy               |
+| shadow_instance_groups                     |
+| shadow_instance_id_mappings                |
+| shadow_instance_info_caches                |
+| shadow_instance_metadata                   |
+| shadow_instance_system_metadata            |
+| shadow_instance_type_extra_specs           |
+| shadow_instance_type_projects              |
+| shadow_instance_types                      |
+| shadow_instances                           |
+| shadow_key_pairs                           |
+| shadow_migrate_version                     |
+| shadow_migrations                          |
+| shadow_networks                            |
+| shadow_pci_devices                         |
+| shadow_project_user_quotas                 |
+| shadow_provider_fw_rules                   |
+| shadow_quota_classes                       |
+| shadow_quota_usages                        |
+| shadow_quotas                              |
+| shadow_reservations                        |
+| shadow_s3_images                           |
+| shadow_security_group_default_rules        |
+| shadow_security_group_instance_association |
+| shadow_security_group_rules                |
+| shadow_security_groups                     |
+| shadow_services                            |
+| shadow_snapshot_id_mappings                |
+| shadow_snapshots                           |
+| shadow_task_log                            |
+| shadow_virtual_interfaces                  |
+| shadow_volume_id_mappings                  |
+| shadow_volume_usage_cache                  |
+| snapshot_id_mappings                       |
+| snapshots                                  |
+| tags                                       |
+| task_log                                   |
+| virtual_interfaces                         |
+| volume_id_mappings                         |
+| volume_usage_cache                         |
++--------------------------------------------+
+110 rows in set (0.00 sec)
+
+MariaDB [nova]> 
+MariaDB [nova]> 
+MariaDB [nova]> 
+MariaDB [nova]> 
+MariaDB [nova]> SHOW TABLES WHERE Tables_in_nova LIKE 'instance%';
++---------------------------+
+| Tables_in_nova            |
++---------------------------+
+| instance_actions          |
+| instance_actions_events   |
+| instance_extra            |
+| instance_faults           |
+| instance_group_member     |
+| instance_group_policy     |
+| instance_groups           |
+| instance_id_mappings      |
+| instance_info_caches      |
+| instance_metadata         |
+| instance_system_metadata  |
+| instance_type_extra_specs |
+| instance_type_projects    |
+| instance_types            |
+| instances                 |
++---------------------------+
+15 rows in set (0.00 sec)
+
+MariaDB [nova]> 
+MariaDB [nova]> 
+MariaDB [nova]> 
+MariaDB [nova]> 
+MariaDB [nova]> describe instances;
++--------------------------+-----------------------+------+-----+---------+----------------+
+| Field                    | Type                  | Null | Key | Default | Extra          |
++--------------------------+-----------------------+------+-----+---------+----------------+
+| created_at               | datetime              | YES  |     | NULL    |                |
+| updated_at               | datetime              | YES  |     | NULL    |                |
+| deleted_at               | datetime              | YES  |     | NULL    |                |
+| id                       | int(11)               | NO   | PRI | NULL    | auto_increment |
+| internal_id              | int(11)               | YES  |     | NULL    |                |
+| user_id                  | varchar(255)          | YES  |     | NULL    |                |
+| project_id               | varchar(255)          | YES  | MUL | NULL    |                |
+| image_ref                | varchar(255)          | YES  |     | NULL    |                |
+| kernel_id                | varchar(255)          | YES  |     | NULL    |                |
+| ramdisk_id               | varchar(255)          | YES  |     | NULL    |                |
+| launch_index             | int(11)               | YES  |     | NULL    |                |
+| key_name                 | varchar(255)          | YES  |     | NULL    |                |
+| key_data                 | mediumtext            | YES  |     | NULL    |                |
+| power_state              | int(11)               | YES  |     | NULL    |                |
+| vm_state                 | varchar(255)          | YES  |     | NULL    |                |
+| memory_mb                | int(11)               | YES  |     | NULL    |                |
+| vcpus                    | int(11)               | YES  |     | NULL    |                |
+| hostname                 | varchar(255)          | YES  |     | NULL    |                |
+| host                     | varchar(255)          | YES  | MUL | NULL    |                |
+| user_data                | mediumtext            | YES  |     | NULL    |                |
+| reservation_id           | varchar(255)          | YES  | MUL | NULL    |                |
+| scheduled_at             | datetime              | YES  |     | NULL    |                |
+| launched_at              | datetime              | YES  |     | NULL    |                |
+| terminated_at            | datetime              | YES  | MUL | NULL    |                |
+| display_name             | varchar(255)          | YES  |     | NULL    |                |
+| display_description      | varchar(255)          | YES  |     | NULL    |                |
+| availability_zone        | varchar(255)          | YES  |     | NULL    |                |
+| locked                   | tinyint(1)            | YES  |     | NULL    |                |
+| os_type                  | varchar(255)          | YES  |     | NULL    |                |
+| launched_on              | mediumtext            | YES  |     | NULL    |                |
+| instance_type_id         | int(11)               | YES  |     | NULL    |                |
+| vm_mode                  | varchar(255)          | YES  |     | NULL    |                |
+| uuid                     | varchar(36)           | NO   | UNI | NULL    |                |
+| architecture             | varchar(255)          | YES  |     | NULL    |                |
+| root_device_name         | varchar(255)          | YES  |     | NULL    |                |
+| access_ip_v4             | varchar(39)           | YES  |     | NULL    |                |
+| access_ip_v6             | varchar(39)           | YES  |     | NULL    |                |
+| config_drive             | varchar(255)          | YES  |     | NULL    |                |
+| task_state               | varchar(255)          | YES  | MUL | NULL    |                |
+| default_ephemeral_device | varchar(255)          | YES  |     | NULL    |                |
+| default_swap_device      | varchar(255)          | YES  |     | NULL    |                |
+| progress                 | int(11)               | YES  |     | NULL    |                |
+| auto_disk_config         | tinyint(1)            | YES  |     | NULL    |                |
+| shutdown_terminate       | tinyint(1)            | YES  |     | NULL    |                |
+| disable_terminate        | tinyint(1)            | YES  |     | NULL    |                |
+| root_gb                  | int(11)               | YES  |     | NULL    |                |
+| ephemeral_gb             | int(11)               | YES  |     | NULL    |                |
+| cell_name                | varchar(255)          | YES  |     | NULL    |                |
+| node                     | varchar(255)          | YES  |     | NULL    |                |
+| deleted                  | int(11)               | YES  | MUL | NULL    |                |
+| locked_by                | enum('owner','admin') | YES  |     | NULL    |                |
+| cleaned                  | int(11)               | YES  |     | NULL    |                |
+| ephemeral_key_uuid       | varchar(36)           | YES  |     | NULL    |                |
++--------------------------+-----------------------+------+-----+---------+----------------+
+53 rows in set (0.00 sec)
+
+MariaDB [nova]> 
+MariaDB [nova]> 
+MariaDB [nova]> 
+MariaDB [nova]> 
+MariaDB [nova]> 
+MariaDB [nova]> exit
+Bye
+
+
+== 5 .- Revision de keystone
+
+[root@f2lctr01 ~(keystone_admin)]# cat keystonerc_admin 
+unset OS_SERVICE_TOKEN
+    export OS_USERNAME=admin
+    export OS_PASSWORD=Actinver01
+    export OS_AUTH_URL=http://10.12.8.11:5000/v2.0
+    export PS1='[\u@\h \W(keystone_admin)]\$ '
+    
+export OS_TENANT_NAME=admin
+export OS_REGION_NAME=RegionOne
+    [root@f2lctr01 ~(keystone_admin)]# 
+[root@f2lctr01 ~(keystone_admin)]# 
+[root@f2lctr01 ~(keystone_admin)]# 
+[root@f2lctr01 ~(keystone_admin)]# 
+[root@f2lctr01 ~(keystone_admin)]# 
+[root@f2lctr01 ~(keystone_admin)]# openstack user list
++----------------------------------+------------+
+| ID                               | Name       |
++----------------------------------+------------+
+| e49cba1a5785469298c4966dd3ae8925 | admin      |
+| 14eaf1419fe8490f935ebdc5e8563118 | neutron    |
+| d2c1ebd5d88a44d8867677ac343ca0a1 | heat       |
+| 3ae8b5b6827b4f5f89f8e4436aa6d84d | gnocchi    |
+| f9779d9148614f8da657767fbf14308b | aodh       |
+| ab89e750fd424abf898b4aef6ec33b4a | nova       |
+| 8913e8dae1cc49ed84489e39b295f5ea | glance     |
+| cb4199fc12764d6a8dafc10d3e4fb172 | ceilometer |
+| 014141599b27405eaf257fef6ca68bdd | cinder     |
+| 778789bdb9ec49868dae2c252be7e850 | heat-cfn   |
+| 91ccd2aede254a25b3f0b04176d24533 | swift      |
++----------------------------------+------------+
+[root@f2lctr01 ~(keystone_admin)]# openstack user show admin
++----------+----------------------------------+
+| Field    | Value                            |
++----------+----------------------------------+
+| email    | root@localhost                   |
+| enabled  | True                             |
+| id       | e49cba1a5785469298c4966dd3ae8925 |
+| name     | admin                            |
+| username | admin                            |
++----------+----------------------------------+
+[root@f2lctr01 ~(keystone_admin)]# openstack endpoint list
++----------------------------------+-----------+--------------+----------------+
+| ID                               | Region    | Service Name | Service Type   |
++----------------------------------+-----------+--------------+----------------+
+| 0c21505a10ca4f4c9aab286b50b670f9 | RegionOne | cinderv3     | volumev3       |
+| a080fa262b084427bf4339693582346b | RegionOne | ceilometer   | metering       |
+| bad71b8300b24435acf77af36bd032f0 | RegionOne | aodh         | alarming       |
+| 109550a732184ee2b91d334480c099af | RegionOne | keystone     | identity       |
+| d16db93a2f86494fa2cbb2864dd59e3a | RegionOne | nova         | compute        |
+| 7562dfb518104082920f8f645a80a73f | RegionOne | heat         | orchestration  |
+| 905fdd8936bc42e38003ce5b058a0d92 | RegionOne | heat-cfn     | cloudformation |
+| 04fea0388493406394f38571bd3874ff | RegionOne | swift        | object-store   |
+| 7375cc1204b44988bb93d875d914ffba | RegionOne | cinder       | volume         |
+| 5ace8cc258ad46058934d50f022abb9f | RegionOne | glance       | image          |
+| 455d07d041734a7cb732251e764c2945 | RegionOne | neutron      | network        |
+| d1045e9fe7914e97bb60d4d0e3a02dac | RegionOne | cinderv2     | volumev2       |
+| 1c7f04859c7546e7b74096e3593370d2 | RegionOne | gnocchi      | metric         |
++----------------------------------+-----------+--------------+----------------+
+[root@f2lctr01 ~(keystone_admin)]# openstack endpoint show 109550a732184ee2b91d334480c099af
++--------------+----------------------------------+
+| Field        | Value                            |
++--------------+----------------------------------+
+| adminurl     | http://10.12.8.11:35357/v2.0     |
+| enabled      | True                             |
+| id           | 109550a732184ee2b91d334480c099af |
+| internalurl  | http://10.12.8.11:5000/v2.0      |
+| publicurl    | http://10.12.8.11:5000/v2.0      |
+| region       | RegionOne                        |
+| service_id   | 69d7dd4a183f4181b0d5b6a051574951 |
+| service_name | keystone                         |
+| service_type | identity                         |
++--------------+----------------------------------+
+
+
+== 6 .- Manage Projects and Users Lab
+
+[root@f2lctr01 ~(keystone_admin)]# openstack project list
++----------------------------------+----------+
+| ID                               | Name     |
++----------------------------------+----------+
+| 4cb8ec605eb64fd38a7f8aa4eb54f9d3 | admin    |
+[root@f2lctr01 ~(keystone_admin)]# openstack project create --description "Proyecto de prueba Actinver1" Proyecto1
++-------------+----------------------------------+
+| Field       | Value                            |
++-------------+----------------------------------+
+| description | Proyecto de prueba Actinver1     |
+| enabled     | True                             |
+| id          | 14fac5cc8cfe4453b6e0a3f03e4a9766 |
+| name        | Proyecto1                        |
++-------------+----------------------------------+
+[root@f2lctr01 ~(keystone_admin)]# openstack project show Proyecto1
++-------------+----------------------------------+
+| Field       | Value                            |
++-------------+----------------------------------+
+| description | Proyecto de prueba Actinver1     |
+| enabled     | True                             |
+| id          | 14fac5cc8cfe4453b6e0a3f03e4a9766 |
+| name        | Proyecto1                        |
+| properties  |                                  |
++-------------+----------------------------------+
+[root@f2lctr01 ~(keystone_admin)]# openstack project list
++----------------------------------+-----------+
+| ID                               | Name      |
++----------------------------------+-----------+
+| 14fac5cc8cfe4453b6e0a3f03e4a9766 | Proyecto1 |
+| 4192cb8ea3224a70aa7429a0ff30f536 | services  |
+| 4cb8ec605eb64fd38a7f8aa4eb54f9d3 | admin     |
++----------------------------------+-----------+
+[root@f2lctr01 ~(keystone_admin)]# 
+[root@f2lctr01 ~(keystone_admin)]# 
+[root@f2lctr01 ~(keystone_admin)]# 
+[root@f2lctr01 ~(keystone_admin)]# openstack quota show Proyecto1
++----------------------+----------------------------------+
+| Field                | Value                            |
++----------------------+----------------------------------+
+| backup_gigabytes     | 1000                             |
+| backups              | 10                               |
+| cores                | 20                               |
+| fixed-ips            | -1                               |
+| floating-ips         | 50                               |
+| gigabytes            | 1000                             |
+| gigabytes_iscsi      | -1                               |
+| graph                | -1                               |
+| healthmonitor        | -1                               |
+| injected-file-size   | 10240                            |
+| injected-files       | 5                                |
+| injected-path-size   | 255                              |
+| instances            | 10                               |
+| key-pairs            | 100                              |
+| l7policy             | -1                               |
+| listener             | -1                               |
+| loadbalancer         | 10                               |
+| members              | -1                               |
+| networks             | 10                               |
+| per_volume_gigabytes | -1                               |
+| pool                 | 10                               |
+| ports                | 50                               |
+| project              | 14fac5cc8cfe4453b6e0a3f03e4a9766 |
+| properties           | 128                              |
+| ram                  | 51200                            |
+| rbac-policies        | 10                               |
+| routers              | 10                               |
+| secgroup-rules       | 100                              |
+| secgroups            | 10                               |
+| server-group-members | 10                               |
+| server-groups        | 10                               |
+| snapshots            | 10                               |
+| snapshots_iscsi      | -1                               |
+| subnetpools          | -1                               |
+| subnets              | 10                               |
+| volumes              | 10                               |
+| volumes_iscsi        | -1                               |
++----------------------+----------------------------------+
+[root@f2lctr01 ~(keystone_admin)]# 
+[root@f2lctr01 ~(keystone_admin)]# 
+[root@f2lctr01 ~(keystone_admin)]# 
+[root@f2lctr01 ~(keystone_admin)]# 
+[root@f2lctr01 ~(keystone_admin)]# 
+[root@f2lctr01 ~(keystone_admin)]# 
+[root@f2lctr01 ~(keystone_admin)]# ##################################
+[root@f2lctr01 ~(keystone_admin)]# #
+[root@f2lctr01 ~(keystone_admin)]# # Creando Usuarios
+[root@f2lctr01 ~(keystone_admin)]# #
+[root@f2lctr01 ~(keystone_admin)]# ##################################
+[root@f2lctr01 ~(keystone_admin)]# 
+[root@f2lctr01 ~(keystone_admin)]# openstack user list
++----------------------------------+------------+
+| ID                               | Name       |
++----------------------------------+------------+
+| e49cba1a5785469298c4966dd3ae8925 | admin      |
+| 14eaf1419fe8490f935ebdc5e8563118 | neutron    |
+| d2c1ebd5d88a44d8867677ac343ca0a1 | heat       |
+| 3ae8b5b6827b4f5f89f8e4436aa6d84d | gnocchi    |
+| f9779d9148614f8da657767fbf14308b | aodh       |
+| ab89e750fd424abf898b4aef6ec33b4a | nova       |
+| 8913e8dae1cc49ed84489e39b295f5ea | glance     |
+| cb4199fc12764d6a8dafc10d3e4fb172 | ceilometer |
+| 014141599b27405eaf257fef6ca68bdd | cinder     |
+| 778789bdb9ec49868dae2c252be7e850 | heat-cfn   |
+| 91ccd2aede254a25b3f0b04176d24533 | swift      |
++----------------------------------+------------+
+[root@f2lctr01 ~(keystone_admin)]# 
+[root@f2lctr01 ~(keystone_admin)]# 
+[root@f2lctr01 ~(keystone_admin)]# 
+[root@f2lctr01 ~(keystone_admin)]# #openstack user create --password r3dh4t1! --email root@localhost --project Project2 user2
+[root@f2lctr01 ~(keystone_admin)]# openstack user create --password Actinver01 --email mpinedam@redhat.com --project Proyecto1 actinver
++------------+----------------------------------+
+| Field      | Value                            |
++------------+----------------------------------+
+| email      | mpinedam@redhat.com              |
+| enabled    | True                             |
+| id         | ae540b5b2907471982e89fefd992c5c7 |
+| name       | actinver                         |
+| project_id | 14fac5cc8cfe4453b6e0a3f03e4a9766 |
+| username   | actinver                         |
++------------+----------------------------------+
+[root@f2lctr01 ~(keystone_admin)]# 
+
+
+== 7 .- Revisando Neutron.
 
 
 
